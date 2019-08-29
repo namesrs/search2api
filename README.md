@@ -1,3 +1,5 @@
+![Alt text](screenshot.png?raw=true "Title")
+
 # search2api
 Sample for one way to use the SearchDomain command to check domain name availability
 
