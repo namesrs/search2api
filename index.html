@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <style>
+    .searchResults {
+
+    visibility: hidden;
+position: absolute;
+top:60%;
+left: 0;
+right: 0;
+    }
+    .loadingIndicator {
+    visibility: hidden;
+    }
+    .whoisBody {
+    height: 45rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    word-wrap: break-word;
+    white-space: pre-line;
+    }
+    .nav-item {
+    height: 4rem;
+    line-height: 3;
+    }
+
+
+
+
+    .form-control {
+    outline: 0;
+    box-shadow: none;
+    
+    }
+    #searchInput:focus {
+    border-color: #fff;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+}
+
+
+
+
+#orderItems {
+display: none;
+}
+#orderForm {
+display: none;
+}
+
+
+
+
+
+    .btn {
+    outline: 0;
+    box-shadow: none;
+    }
+.btn:focus,
+.btn:active{
+    box-shadow:none !important;
+    outline:0px !important;
+}
+    .btn-available {
+    color: #007bff;
+    }
+    .btn-available:hover {
+    background: #007bff;
+    color: #fff;
+    }
+    .btn-unavailable {
+    color: #343a40;
+    }
+    .btn-unavailable:hover {
+    background: #343a40;
+    color: #fff;
+    }
+    .w-5 {
+    width: 8rem;
+    }
+    .no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  > .col,
+  > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+    html, body {
+    margin: 0; 
+    height: 100%; 
+
+    }
+
+    
+    
+    
+    </style>
+    <title>Hello, world!</title>
+  </head>
+  <body class="bg-primary">
+  
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light p-0 fixed-top">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Support</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link orderLink" href="#">Gå till kassan</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid h-100 d-flex p-3">
+  <div class="container align-self-center p-0">
+<h1 class="text-light text-center display-4 font-weight-bold d-none d-lg-block">Alla toppdomäner - En registrar</h1>
+<h3 class="text-light text-center font-weight-light d-none d-lg-block">Sök och registrera i över 1000 toppdomäner.</h3>
+
+
+<h3 class="text-light text-center font-weight-bold d-md-none">Alla toppdomäner - En registrar</h1>
+<h6 class="text-light text-center font-weight-light d-md-none">Sök och registrera i över 1000 toppdomäner.</h3>
+
+    <form id="searchForm">
+      <div class="input-group bg-white">
+        <input type="text" class="form-control form-control-lg" id="searchInput" placeholder="Sök bland alla världens domännamn">
+        <div class="input-group-append">
+    <button class="btn btn-light text-primary ladda-button" type="submit">Sök</button>
+  </div>
+      </div>
+    </form>   
+    <a href="#" class="text-white float-right advancedSettings">Visa avancerade alternativ</a>
+<br>
+ <h3 class="text-white pt-4 text-center loadingIndicator"><i class='fas fa-circle-notch fa-spin'></i> Laddar</h3>
+</div>
+</div>
+
+
+
+
+  <div class="container searchResults bg-white rounded p-3 align-self-center">
+  <h3>Sökresultat: <span class="text-primary">Alla</span></h3>
+  <br>
+  <p>Alla domäner inkluderar: <span class="text-primary">EMAIL, DNS, SSL</span></p>
+<ul id="domainList" class="list-group mx-auto w-100">
+
+</ul>
+</div>
+
+
+
+
+
+</div>
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="orderModal">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Beställningsformulär</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Domän</th>
+      <th class="w-25 text-right">Ta bort</th>
+    </tr>
+  </thead>
+  <tbody id="orderItems">
+
+  </tbody>
+  <tbody id="noItems">
+    <tr>
+	<td>Inga domäner har lagts till</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<form id="orderForm" action="order.php" method="get" enctype="multipart/form-data">
+  <div class="form-group">
+    <label>Ditt namn</label>
+    <input type="text" class="form-control" name="Name" placeholder="Ditt namn">
+  </div>
+  <div class="form-group">
+    <label>Din email</label>
+    <input type="text" class="form-control" name="email" placeholder="Din email">
+  </div>
+  <div class="form-group">
+    <label>Ditt telefonnummer</label>
+    <input type="text" class="form-control" name="telephone" placeholder="Ditt telefonnummer">
+  </div>
+  <button type="submit" class="btn btn-primary float-right">Slutför</button>
+</form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="whoisTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body whoisBody">
+        <p class="whoisData"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Stäng</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="advancedSettings">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Avancerade alternativ</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<h6>Exportera sökresultat:</h6>
+<ul class="list-group mx-auto w-100 d-flex">
+<li class='list-group-item d-flex align-items-center'>Ladda ner som CSV: <button class="btn btn-primary csv-button ml-auto" disabled>Ladda ner</button></li>
+</ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Stäng</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<script src="js/csv.js"></script>
+<script src="js/domainlist.js"></script>
+<script src="js/loading.js"></script>
+<script src="js/order.js"></script>
+<script src="js/resultsanimations.js"></script>
+<script src="js/whois.js"></script>
+        <script>
+$( document ).ready(function() {
+
+
+//Configuration
+
+
+var url = "api.php?action=config";
+$.get( url, function( data ) {
+config = JSON.parse(data);
+
+if(config['disableAdvancedSettings']) {
+$('.advancedSettings').hide();
+}
+
+
+
+
+});
+
+
+
+
+
+
+requestArray = [];
+
+
+
+
+
+
+$(document).on('submit', '#searchForm', function(event) {
+$.each(requestArray, function(idx, jqXHR) {
+    jqXHR.abort();
+});
+$(".csv-button").attr("disabled", "disabled");
+event.preventDefault();
+hideResultsanimation();
+StartedLoadingTimer();
+startSearch();
+console.log('Form submission cancelled.');
+return false;
+});
+
+
+
+
+});
+
+
+</script>
+  </body>
+</html>
