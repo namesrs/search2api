@@ -2,6 +2,13 @@
 Sample for searching domain name availability
 
 
+# Requirements
+
+PHP >= 5.4 (compatible with 7.* up to 7.3)
+php-curl
+php-intl
+php-mbstring
+Allowed port 43 in firewall
 
 # Instructions
 
