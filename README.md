@@ -1,5 +1,5 @@
 # search2api
-Sample for searching domain name availability
+Sample for one way to use the SearchDomain command to check domain name availability
 
 
 # Requirements
