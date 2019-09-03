@@ -8,7 +8,7 @@ function getwhois(domain) {
 
     var url = "api.php?action=whois&domain=" + domain;
     $("#whoisTitle").html("Whois - <span class='text-primary'>" + domain + "</span>");
-    $(".whoisData").html('Laddar...');
+    $(".whoisData").html('Loading...');
     $('#myModal').modal('toggle');
     $.get(url, function(data) {
         data = JSON.parse(data);

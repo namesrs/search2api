@@ -46,7 +46,7 @@ function appendDomainList(data) {
         var html = "";
         html += "<li id='" + i + "' class='list-group-item p-0 border-top-0 border-right-0 border-left-0 checkDomain d-flex align-items-center' data-domain='" + data[i] + "'>";
         html += "<h6 class='mr-auto domain-text'>" + data[i] + "</h6>";
-        html += "<button type='button' class='btn ml-auto rounded-0 w-5 border-bottom-0'><i class='fas fa-circle-notch fa-spin'></i> Laddar</button></li>";
+        html += "<button type='button' class='btn ml-auto rounded-0 w-5 border-bottom-0'><i class='fas fa-circle-notch fa-spin'></i> Loading</button></li>";
         html += "<br>";
         $("#domainList").append(html);
     }
@@ -121,21 +121,21 @@ function updateDomainList(status, tld, domain) {
     if (status.indexOf("unav") !== -1) {
         $(id).find('.btn').removeClass("border-bottom-0").css("opacity", "0.3");
         $(id).find('.btn').addClass("btn-outline-dark unavailable");
-        $(id).find('.btn').html("<i class='fas fa-eye'></i> Upptagen");
+        $(id).find('.btn').html("<i class='fas fa-eye'></i> Taken");
     } else if (status.indexOf('invalid') !== -1) {
         $(id).find('.btn').addClass("btn-danger invalid");
-        $(id).find('.btn').html("<i class='fas fa-times'></i> Ogiltig");
+        $(id).find('.btn').html("<i class='fas fa-times'></i> Invalid");
     } else {
 
         if (config['enableOrder']) {
 
             $(id).find('.btn').addClass("btn-primary available");
-            $(id).find('.btn').html("<i class='fas fa-shopping-cart'></i> Tillgänglig");
+            $(id).find('.btn').html("<i class='fas fa-shopping-cart'></i> Available");
 
         } else {
 
             $(id).find('.btn').addClass("btn-primary");
-            $(id).find('.btn').html("<i class='fas fa-check'></i> Tillgänglig");
+            $(id).find('.btn').html("<i class='fas fa-check'></i> Available");
 
         }
     }
