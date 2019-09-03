@@ -125,31 +125,31 @@ display: none;
         <a class="nav-link" href="#">Support</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link orderLink" href="#">Gå till kassan</a>
+        <a class="nav-link orderLink" href="#">Go to shopping cart</a>
       </li>
     </ul>
   </div>
 </nav>
 <div class="container-fluid h-100 d-flex p-3">
   <div class="container align-self-center p-0">
-<h1 class="text-light text-center display-4 font-weight-bold d-none d-lg-block">Alla toppdomäner - En registrar</h1>
-<h3 class="text-light text-center font-weight-light d-none d-lg-block">Sök och registrera i över 1000 toppdomäner.</h3>
+<h1 class="text-light text-center display-4 font-weight-bold d-none d-lg-block">All Top Level Domains - One registra</h1>
+<h3 class="text-light text-center font-weight-light d-none d-lg-block">Search and register in over 1000 Top Level Domains</h3>
 
 
-<h3 class="text-light text-center font-weight-bold d-md-none">Alla toppdomäner - En registrar</h1>
-<h6 class="text-light text-center font-weight-light d-md-none">Sök och registrera i över 1000 toppdomäner.</h3>
+<h3 class="text-light text-center font-weight-bold d-md-none">All Top Level Domains - One registra</h1>
+<h6 class="text-light text-center font-weight-light d-md-none">Search and register in over 1000 Top Level Domains</h3>
 
     <form id="searchForm">
       <div class="input-group bg-white">
-        <input type="text" class="form-control form-control-lg" id="searchInput" placeholder="Sök bland alla världens domännamn">
+        <input type="text" class="form-control form-control-lg" id="searchInput" placeholder="Search domains">
         <div class="input-group-append">
-    <button class="btn btn-light text-primary ladda-button" type="submit">Sök</button>
+    <button class="btn btn-light text-primary ladda-button" type="submit">Search</button>
   </div>
       </div>
     </form>   
-    <a href="#" class="text-white float-right advancedSettings">Visa avancerade alternativ</a>
+    <a href="#" class="text-white float-right advancedSettings">Show advanced options</a>
 <br>
- <h3 class="text-white pt-4 text-center loadingIndicator"><i class='fas fa-circle-notch fa-spin'></i> Laddar</h3>
+ <h3 class="text-white pt-4 text-center loadingIndicator"><i class='fas fa-circle-notch fa-spin'></i> Loading</h3>
 </div>
 </div>
 
@@ -157,9 +157,9 @@ display: none;
 
 
   <div class="container searchResults bg-white rounded p-3 align-self-center">
-  <h3>Sökresultat: <span class="text-primary">Alla</span></h3>
+  <h3>Search results: <span class="text-primary">All</span></h3>
   <br>
-  <p>Alla domäner inkluderar: <span class="text-primary">EMAIL, DNS, SSL</span></p>
+  <p>All domains includes: <span class="text-primary">TEXT</span></p>
 <ul id="domainList" class="list-group mx-auto w-100">
 
 </ul>
@@ -189,7 +189,7 @@ display: none;
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Beställningsformulär</h5>
+        <h5 class="modal-title">Order form</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -198,8 +198,8 @@ display: none;
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Domän</th>
-      <th class="w-25 text-right">Ta bort</th>
+      <th>Domain</th>
+      <th class="w-25 text-right">Remove</th>
     </tr>
   </thead>
   <tbody id="orderItems">
@@ -207,7 +207,7 @@ display: none;
   </tbody>
   <tbody id="noItems">
     <tr>
-	<td>Inga domäner har lagts till</td>
+	<td>No domains has been added</td>
       <td></td>
     </tr>
   </tbody>
@@ -215,18 +215,18 @@ display: none;
 
 <form id="orderForm" action="order.php" method="get" enctype="multipart/form-data">
   <div class="form-group">
-    <label>Ditt namn</label>
-    <input type="text" class="form-control" name="Name" placeholder="Ditt namn">
+    <label>Your name</label>
+    <input type="text" class="form-control" name="Name" placeholder="Name">
   </div>
   <div class="form-group">
-    <label>Din email</label>
-    <input type="text" class="form-control" name="email" placeholder="Din email">
+    <label>Your email</label>
+    <input type="text" class="form-control" name="email" placeholder="Email">
   </div>
   <div class="form-group">
-    <label>Ditt telefonnummer</label>
-    <input type="text" class="form-control" name="telephone" placeholder="Ditt telefonnummer">
+    <label>Your phonenumber</label>
+    <input type="text" class="form-control" name="telephone" placeholder="Phonenumber">
   </div>
-  <button type="submit" class="btn btn-primary float-right">Slutför</button>
+  <button type="submit" class="btn btn-primary float-right">Submit</button>
 </form>
 
 
@@ -251,7 +251,7 @@ display: none;
         <p class="whoisData"></p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Stäng</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
@@ -263,19 +263,19 @@ display: none;
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Avancerade alternativ</h5>
+        <h5 class="modal-title">Advanced options</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-<h6>Exportera sökresultat:</h6>
+<h6>Export search results:</h6>
 <ul class="list-group mx-auto w-100 d-flex">
-<li class='list-group-item d-flex align-items-center'>Ladda ner som CSV: <button class="btn btn-primary csv-button ml-auto" disabled>Ladda ner</button></li>
+<li class='list-group-item d-flex align-items-center'>Download as a CSV: <button class="btn btn-primary csv-button ml-auto" disabled>Download</button></li>
 </ul>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Stäng</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
